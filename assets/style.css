@@ -1,0 +1,372 @@
+* {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", "san-serif";
+    background-color: var(--dark);
+    box-sizing: border-box;
+}
+:root {
+    /* --dark: #161625; */
+    --dark: #000;
+    --border-color: #fff1;
+    --purple: #9333ea;
+    --sm: .025rem;
+    --lg: .5rem;
+}
+/* __________________________* MAIN *_________________________ */
+main {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+/* __________________________* OUTSIDE *_________________________ */
+main .search {
+    z-index: 100;
+    position: fixed;
+    top: 10%;
+    display: none;
+}
+main .search input:focus{
+    transition: .7s;
+    outline: none;
+    border-top: 1.5px solid blueviolet;
+    border-bottom: 1.5px solid blueviolet;
+    border-left: 1.5px solid blueviolet;
+    border-right: 0 solid transparent;
+}
+main .search input:active{
+    background: var(--purple);
+}
+main .search input{
+    color: #fff;
+    font-size: 2rem;
+    padding: 0 1.5rem;
+    height: 4rem;
+    width: 45rem;
+    border-radius: 1.5rem 0 0 1.5rem;
+    background: var(--dark);
+    border-top: 1.5px solid #fff5;
+    border-bottom: 1.5px solid #fff5;
+    border-left: 1.5px solid #fff5;
+    border-right: 0 solid transparent;
+}
+main .search button:active {
+    opacity: .7;
+}
+main .search button:hover {
+    background: var(--purple);
+    transition: .7s;
+    cursor: pointer;
+}
+main .search button {
+    color: #fff;
+    font-size: 2rem;
+    padding: 0 1.5rem;
+    height: 4.1rem;
+    width: 5rem;
+    border-radius: 0 1.5rem 1.5rem 0;
+    background: var(--dark);
+    border-top: 1.5px solid #fff5;
+    border-bottom: 1.5px solid #fff5;
+    border-right: 1.5px solid #fff5;
+    border-left: 1.5px solid #fff5;
+}
+main .outside {
+    display: none;
+    position: absolute;
+    background: transparent;
+    backdrop-filter: blur(2px);
+    height: 100vh;
+    width: 100%;
+}
+/* __________________________* NAV *_________________________ */
+main nav {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: auto;
+    padding: 1rem;
+    list-style: none;
+    background-color: #fff1;
+}
+main nav ul > li {
+    background-color: var(--dark);
+    cursor: pointer;
+    transition: .4s;
+    margin: 1rem 0;
+    border-radius: 1.5rem;
+    padding: .5rem;
+    font-size: 2rem;
+}
+main nav ul > li:hover {
+    background-color: #fff2;
+}
+main nav ul > li:active {
+    background-color: #fff5;
+}
+/* __________________________* SECTION *_________________________ */
+/* ___* content *___ */
+main section {
+    margin-left: calc(7rem + 2rem);
+    margin-right: 2rem;
+    color: rgba(251, 244, 244, 0.907);
+}
+main section .output {
+    position: relative;
+    z-index: -1;
+    color: #fff;
+    font-family: "Arial";
+    padding: 1.5rem;
+    font-size: 2rem;
+    line-height: 4rem;
+    letter-spacing: 0px;
+}
+main section #outputSong {
+    position: relative;
+    z-index: -1;
+    color: #fff;
+    font-family: "Maiandra GD";
+    padding: 1.5rem;
+    font-size: 2rem;
+    line-height: 4rem;
+    letter-spacing: 0px;
+    text-align: center;
+}
+main section .output > span {
+    position: relative;
+    font-size: 2rem;
+    color: var(--purple);
+    font-weight: bold;
+    margin: 0 .5rem;
+    bottom: 1rem;
+}
+main section .output  b {
+    color: var(--purple);
+    /* text-decoration: underline wavy var(--purple) 1px !important; */
+    font-weight: lighter;
+    text-decoration: none !important;
+    font-style: normal;
+    /* font-family: "Agency Fb"; */
+}
+main section .output > i {
+    color: var(--purple);
+    font-weight: bolder;
+    text-decoration: underline #9233eab4 2px;
+    /* text-decoration: underline wavy  2px; */
+    text-transform: capitalize;
+    margin: 0 1rem;
+    /* font-family: "Times News Roman"; */
+}
+/* ___* loader *___ */
+main section .outputList .load{
+    position: absolute;
+    display: inline-table;
+    left: 72%;
+    top: 47%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+}
+main section .outputList .load > svg {
+    padding: 0rem;
+    background-color: var(--dark);
+    border-radius: 100%;
+    color: var(--dark);
+    /* border: #fff1 1px solid; */
+    animation: spin 1s linear infinite;
+}
+
+/* ___* chapters *___ */
+main section .outputList {
+    position: fixed;
+    display: none;
+    z-index: 100;
+    height: 100vh;
+    left: 6.5rem;
+    background: var(--dark);
+    backdrop-filter: 200px;
+    border-left: 1.5px solid var(--border-color);
+    border-right: 1.5px solid var(--border-color);
+}
+main section .outputList p:active {
+    background-color: #9233ea53;
+}
+main section .outputList p:hover {
+    border: 1.5px solid var(--purple);
+    color: var(--purple);
+}
+main section .outputList p {
+    background: #fff1;
+    cursor: pointer;
+    transition: .4s;
+    color: #fff;
+    border-radius: 1rem;
+    margin: 1.5rem .5rem;
+    text-align: center;
+    border: 1.5px solid var(--border-color);
+}
+main section .outputList .b.active {
+    background: rgb(0 112 255);
+    cursor: pointer;
+    transition: .4s;
+    color: #fff;
+    border-radius: 1rem;
+    margin: 1.5rem .5rem;
+    text-align: center;
+    border: 1.5px solid var(--border-color);
+}
+main section .outputList .t.active {
+    background: rgb(0 112 255);
+    cursor: pointer;
+    transition: .4s;
+    color: #fff;
+    border-radius: 1rem;
+    margin: 1.5rem .5rem;
+    text-align: center;
+    border: 1.5px solid var(--border-color);
+}
+main section .outputList span {
+    color: #fff5;
+    font-family: 'auto';
+    font-style: oblique;
+    text-align: center;
+    display: block;
+    margin: .5rem 0;
+}
+/* ____* chapiters *____ */
+main section .outputList .outputChapters {
+    font-size: 2rem;
+    border-right: 1.5px solid var(--border-color);
+}
+main section .outputList .outputChapters p {
+    padding: 1rem;
+}
+/* ___* SCROLLBAR chapters *___ */
+main section .outputList .outputChapters::-webkit-scrollbar{
+    width: 0.25rem;
+    height: 0.5rem;
+}
+main section .outputList .outputChapters::-webkit-scrollbar-thumb{
+    border-radius: 5rem;
+    background-color: #9333ea;
+    visibility: hidden;
+}
+main section .outputList .outputChapters:hover::-webkit-scrollbar-thumb{ 
+    visibility: visible;
+    border: 1.5px solid transparent;
+}
+/* ____* fihirana *____ */
+main section .outputList .outputFihirana {
+    display: none;
+    font-size: 2rem;
+    border-right: 1.5px solid var(--border-color);
+}
+main section .outputList .outputFihirana p {
+    padding: 0.5rem 1.5rem;
+    background: #fff1;
+    cursor: pointer;
+    transition: .4s;
+    color: #fff;
+    border-radius: 1rem;
+    margin: 1.5rem .5rem;
+    text-align: start;
+    border: 1.5px solid var(--border-color);
+}
+main section .outputList .outputFihirana p:hover {
+    border: 1.5px solid var(--purple);
+    color: var(--purple);
+}
+main section .outputList .outputFihirana p:active {
+    background-color: #9233ea53;
+}
+main section .outputList .outputFihirana .c.active {
+    background: rgb(0 112 255);
+    cursor: pointer;
+    transition: .4s;
+    color: #fff;
+    border-radius: 1rem;
+    margin: 1.5rem .5rem;
+    text-align: center;
+    border: 1.5px solid var(--border-color);
+}
+/* ___* SCROLLBAR fihirana *___ */
+main section .outputList .outputFihirana::-webkit-scrollbar{
+    width: 0.25rem;
+    height: 0.5rem;
+}
+main section .outputList .outputFihirana::-webkit-scrollbar-thumb{
+    border-radius: 5rem;
+    background-color: #9333ea;
+    visibility: hidden;
+}
+main section .outputList .outputFihirana:hover::-webkit-scrollbar-thumb{ 
+    visibility: visible;
+    border: 1.5px solid transparent;
+}
+/* ____* lists *____ */
+
+main section .outputList .listChapters {
+    display: none;
+    background: #8f00ff0d;
+    margin: 0;
+    grid-template-columns: 5rem 5rem 5rem ;
+    grid-template-rows: 4rem 4rem 4rem ;
+    gap: 2.75rem;
+    width: 23.75rem;
+    font-size: 2rem;
+}
+main section .outputList .listChapters p {
+    padding: 1rem 2rem;
+    display: table;
+    background: #8f00ff0d;
+}
+
+/* ___* SCROLLBAR list *___ */
+main section .outputList .listChapters::-webkit-scrollbar{
+    width: 0.25rem;
+    height: 0.5rem;
+}
+main section .outputList .listChapters::-webkit-scrollbar-thumb{
+    border-radius: 5rem;
+    background-color: #9333ea;
+    visibility: hidden;
+}
+main section .outputList .listChapters:hover::-webkit-scrollbar-thumb{ 
+    visibility: visible;
+    border: 1.5px solid transparent;
+}
+
+/* __________________________* SCROLLBAR CONTENT *_________________________ */
+main section::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+main section::-webkit-scrollbar-thumb{
+    border-radius: 5rem;
+    background-color: #fff5;
+    visibility: hidden;
+}
+main section:hover::-webkit-scrollbar-thumb{ 
+    visibility: visible;
+    border: 1.5px solid transparent;
+}
+/* __________________________* ANIMATION *_________________________ */
+
+@keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
